@@ -1,0 +1,44 @@
+const express = require('express');
+const path = require('path');
+require('dotenv').config();
+
+const app = express();
+
+/**
+ * Environment variables
+ */
+const NODE_ENV = process.env.NODE_ENV || 'production';
+const PORT = process.env.PORT || 3000;
+
+/**
+ * Middleware
+ */
+app.use(express.static(path.join(__dirname, 'public')));
+
+/**
+ * View engine setup
+ */
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'src/views'));
+
+/**
+ * Routes
+ */
+app.get('/', (req, res) => {
+    res.render('home', { title: 'Welcome Home' });
+});
+
+app.get('/about', (req, res) => {
+    res.render('about', { title: 'About Me' });
+});
+
+app.get('/products', (req, res) => {
+    res.render('products', { title: 'Our Products' });
+});
+
+/**
+ * Server
+ */
+app.listen(PORT, () => {
+    console.log(`Server running in ${NODE_ENV} mode on port ${PORT}`);
+});
