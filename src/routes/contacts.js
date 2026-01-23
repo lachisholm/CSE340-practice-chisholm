@@ -54,3 +54,12 @@ router.get('/:id', async (req, res) => {
 
 
 module.exports = router;
+
+
+router.put('/:id', (req, res) => {
+  res.sendStatus(204);
+});
+
+router.delete('/:id', (req, res) => {
+  res.sendStatus(200);
+});
