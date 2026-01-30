@@ -33,6 +33,8 @@ app.set('views', path.join(__dirname, 'src/views'));
 
 
 app.use('/contacts', require('./src/routes/contacts'));
+app.use('/faculty', require('./src/routes/faculty'));
+
 
 /**
  * Routes

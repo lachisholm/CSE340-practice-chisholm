@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<h1><%= title %></h1>
+
+<p>
+  Below is a list of faculty members. Select a faculty member to view
+  additional details.
+</p>
+
+<ul>
+  <% faculty.forEach(member => { %>
+    <li>
+      <h3>
+        <a href="/faculty/<%= member.name.toLowerCase().replace(' ', '-') %>">
+          <%= member.name %>
+        </a>
+      </h3>
+      <p>
+        <strong>Department:</strong> <%= member.department %><br>
+        <strong>Title:</strong> <%= member.title %>
+      </p>
+    </li>
+  <% }) %>
+</ul>
+
+<p>
+  Sort by:
+  <a href="/faculty?sort=name">Name</a> |
+  <a href="/faculty?sort=department">Department</a> |
+  <a href="/faculty?sort=title">Title</a>
+</p>
+
+<%- include('../partials/footer') %>
